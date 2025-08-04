@@ -7,221 +7,194 @@
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css"/>
   <style>
     body {
-      background: #f4f7fa;
       margin: 0;
-      font-family: "Segoe UI", Arial, sans-serif;
-      color: #222;
+      background: #fff;
+      color: #101522;
+      font-family: 'Segoe UI', Arial, sans-serif;
     }
-    .header {
-      position: relative;
-      height: 170px;
-      width: 100%;
-      background: #da291c;
+    .main-card {
+      max-width: 400px;
+      margin: 0 auto;
+      padding-bottom: 100px;
+      box-shadow: 0 8px 32px 0 rgba(50,50,70,.07);
+      border-radius: 18px;
       overflow: hidden;
-      display: flex;
-      align-items: flex-end;
-      flex-direction: column;
-      justify-content: flex-end;
+      min-height: 100vh;
     }
-    .profile-banner {
-      position: absolute;
-      left: 0; top: 0;
-      width: 100%; height: 100%;
+    .pic-curve-container {
+      position: relative;
+      width: 100%;
+      height: 230px;
+      overflow: hidden;
+      background: #da291c;
+    }
+    .profile-pic {
+      width: 100%;
+      height: 240px;
       object-fit: cover;
-      object-position: center;
-      z-index: 1;
+      object-position: center top;
+      display: block;
     }
-    .header-overlay {
+    .pic-bottom-curve {
       position: absolute;
-      top: 0; left: 0; width: 100%; height: 100%;
-      background: rgba(218, 41, 28, 0.8);
+      left: 0; right: 0; bottom: 0;
+      height: 60px;
+      background: #fff;
+      border-radius: 0 0 50% 50%/100% 100% 0 0;
       z-index: 2;
     }
-    .name-title-block {
-      position: absolute;
-      bottom: 20px; left: 0; width: 100%;
+    .content-section {
+      padding: 0 18px 12px 18px;
+      text-align: center;
+      position: relative;
+      margin-top: -48px;
       z-index: 3;
-      color: #fff;
-      text-align: center;
     }
-    .name {
-      font-size: 1.4em;
+    .name-main {
+      font-size: 2em;
       font-weight: bold;
-      letter-spacing: 0.5px;
-      margin-bottom: 2px;
+      margin-bottom: 3px;
+      margin-top: 0.9em;
+      color: #1a1a1a;
     }
-    .title {
+    .title-main, .company-main {
       font-size: 1em;
-      color: #ffe3d2;
-      margin-bottom: 0;
+      color: #555;
+      font-weight: 500;
+      margin: 0;
+      margin-bottom: 3px;
     }
-    .action-row {
-      display: flex;
-      justify-content: center;
-      background: #da291c;
-      padding: 12px 0;
+    .personal-desc {
+      font-size: 0.98em;
+      font-style: italic;
+      margin-bottom: 18px;
+      color: #999;
     }
-    .action-row a {
-      text-decoration: none;
-      color: #fff;
-      flex: 1;
-      text-align: center;
-      font-weight: bold;
-      letter-spacing: 0.2px;
-    }
-    .action-row i {
+    .red-btn {
       display: block;
-      font-size: 1.5em;
-      margin-bottom: 2px;
+      width: 100%;
+      padding: 15px 0;
+      margin: 12px 0;
+      background: #da291c;
+      color: #fff;
+      font-size: 1.23em;
+      font-weight: 500;
+      border: none;
+      border-radius: 28px;
+      cursor: pointer;
+      transition: background .14s;
+      box-shadow: 0 2px 6px rgba(218,41,28,0.07);
+      letter-spacing: 0.04em;
+      text-decoration: none;
     }
-    .container {
-      background: #fff;
-      margin: 0 auto;
-      margin-top: 10px;
-      padding: 16px;
-      max-width: 450px;
-      border-radius: 12px;
-      box-shadow: 0 4px 18px rgba(50, 50, 90, 0.12);
+    .red-btn i {
+      margin-right: 12px;
     }
-    .info-row {
+    .red-btn:active, .red-btn:hover {
+      background: #a32916;
+      color: #fff;
+    }
+    .detail-line {
+      color: #444;
+      margin-top: 22px;
+      font-size: 1.03em;
       display: flex;
       align-items: center;
-      margin: 14px 0;
-      color: #34495e;
+      justify-content: center;
+      gap: 10px;
     }
-    .info-row i {
-      width: 28px;
-      min-width: 28px;
-      text-align: center;
+    .fab {
       color: #da291c;
-      margin-right: 12px;
-      font-size: 1.2em;
     }
-    .info-label {
-      font-size: 0.97em;
-      font-weight: 500;
-    }
-    .label-tiny {
-      font-size: 0.85em;
-      color: #888;
-    }
-    .save-btn {
-      background: #f8cb23;
-      border: none;
-      color: #a32916;
-      padding: 12px 26px;
-      border-radius: 24px;
-      font-size: 1em;
-      font-weight: bold;
-      box-shadow: 0 2px 8px rgba(70, 70, 70, 0.1);
-      cursor: pointer;
+    /* Floating Save Button */
+    .fab-save {
       position: fixed;
       bottom: 28px;
-      right: 32px;
-      z-index: 9;
+      right: 28px;
+      z-index: 99;
+      background: #da291c;
+      color: #fff;
+      width: 60px;
+      height: 60px;
+      border-radius: 50%;
+      box-shadow: 0 2px 8px rgba(218,41,28,0.3);
+      border: none;
       display: flex;
+      justify-content: center;
       align-items: center;
+      font-size: 2em;
+      cursor: pointer;
+      font-weight: bold;
+      transition: background .13s;
     }
-    .save-btn i {
-      font-size: 1.2em;
-      margin-right: 8px;
-    }
-    .website-link,
-    .linkedin-link {
-      color: #da291c;
-      text-decoration: none;
-      word-break: break-all;
+    .fab-save:active { background: #a32916;}
+    .fab-save-label {
+      position: fixed;
+      bottom: 30px;
+      right: 100px;
+      background: #da291c;
+      color: #fff;
+      padding: 0.65em 1em;
+      border-radius: 18px;
+      font-size: 1em;
+      box-shadow: 0 2px 8px rgba(218,41,28,0.09);
+      z-index: 100;
+      font-weight: 500;
+      display: none;
     }
     @media (max-width: 550px) {
-      .container {
+      .main-card {
         max-width: 99vw;
-        border-radius: 0;
-        padding: 7vw 2vw;
       }
-      .action-row {
-        padding: 10px 0;
+      .content-section {
+        padding: 0 2vw 12vw 2vw;
       }
-      .save-btn {
-        right: 12px;
-        bottom: 12px;
-      }
-      .header {
-        height: 140px;
-      }
-      .name-title-block {
-        bottom: 10px;
-      }
+      .pic-curve-container { height: 150px; }
+      .profile-pic { height: 160px; }
+      .fab-save { width: 52px; height: 52px; font-size: 1.40em; bottom: 16px; right: 16px;}
+      .fab-save-label { right: 70px; font-size: 0.98em;}
+      .name-main {margin-top: 0.6em;}
     }
   </style>
 </head>
 <body>
-  <div class="header">
-    <!-- Use your own picture URL below. This is a placeholder. -->
-    <img src="https://randomuser.me/api/portraits/men/51.jpg"
-         alt="Sachin Sunny"
-         class="profile-banner" />
-    <div class="header-overlay"></div>
-    <div class="name-title-block">
-      <div class="name">Sachin Sunny</div>
-      <div class="title">Information Technology Associate</div>
+  <div class="main-card">
+    <div class="pic-curve-container">
+      <img class="profile-pic" src="https://randomuser.me/api/portraits/men/51.jpg" alt="Sachin Sunny" />
+      <div class="pic-bottom-curve"></div>
     </div>
-  </div>
-  <div class="action-row">
-    <a href="tel:+919778631272"><i class="fas fa-phone"></i>CALL</a>
-    <a href="mailto:sachin.s@aero-connections.com"><i class="fas fa-envelope"></i>EMAIL</a>
-    <a href="https://goo.gl/maps/Q3TcerHeLCxYJG5c6" target="_blank"><i class="fas fa-map-marked-alt"></i>DIRECTIONS</a>
-  </div>
-
-  <div class="container">
-    <div class="info-row">
-      <i class="fas fa-phone"></i>
-      <div>
-        <div class="info-label">+91 9778631272</div>
-        <div class="label-tiny">Mobile</div>
+    <div class="content-section">
+      <div class="name-main">Sachin Sunny</div>
+      <div class="title-main">Information Technology Associate</div>
+      <div class="company-main">AeroConnections</div>
+      <div class="personal-desc">Passionate about IT solutions and digital innovation.</div>
+      <a class="red-btn" href="tel:+919778631272"><i class="fas fa-phone"></i>Phone</a>
+      <a class="red-btn" href="mailto:sachin.s@aero-connections.com"><i class="fas fa-envelope"></i>Email</a>
+      <a class="red-btn" href="https://aero-connections.com/" target="_blank"><i class="fas fa-globe"></i>Website</a>
+      <div class="detail-line">
+        <i class="fas fa-phone"></i>
+        <span>+91 9778631272</span>
       </div>
-    </div>
-    <div class="info-row">
-      <i class="fas fa-envelope"></i>
-      <div>
-        <div class="info-label">sachin.s@aero-connections.com</div>
-        <div class="label-tiny">Email</div>
+      <div class="detail-line">
+        <i class="fas fa-map-marker-alt"></i>
+        <span>PO Box: 68736, Sharjah Airport International Free Zone, Sharjah, United Arab Emirates.</span>
       </div>
-    </div>
-    <div class="info-row">
-      <i class="fas fa-building"></i>
-      <div>
-        <div class="info-label">AeroConnections</div>
-        <div class="label-tiny">Information Technology Associate</div>
-      </div>
-    </div>
-    <div class="info-row">
-      <i class="fas fa-map-marker-alt"></i>
-      <div>
-        <div class="info-label">
-          PO Box: 68736, Sharjah Airport International Free Zone, Sharjah, United Arab Emirates.
-        </div>
-      </div>
-    </div>
-    <div class="info-row">
-      <i class="fas fa-external-link-alt"></i>
-      <div>
-        <a class="website-link" href="https://aero-connections.com/" target="_blank">https://aero-connections.com/</a>
-      </div>
-    </div>
-    <div class="info-row">
-      <i class="fab fa-linkedin"></i>
-      <div>
-        <a class="linkedin-link" href="https://www.linkedin.com/in/sachinsunnyit/" target="_blank">https://www.linkedin.com/in/sachinsunnyit/</a>
+      <div class="detail-line">
+        <i class="fab fa-linkedin"></i>
+        <a href="https://www.linkedin.com/in/sachinsunnyit/" target="_blank" style="color:#da291c;text-decoration: underline;">LinkedIn</a>
       </div>
     </div>
   </div>
-
-  <button class="save-btn" id="saveContact">
-    <i class="fas fa-user-plus"></i>Save Contact
-  </button>
-
+  <div id="save-label" class="fab-save-label">Save to contacts</div>
+  <button class="fab-save" id="saveContact" aria-label="Save to contacts"><i class="fas fa-user-plus"></i></button>
   <script>
-    document.getElementById("saveContact").onclick = function () {
+    // Show label when hovering the save button (optional, can be removed for simplicity)
+    const saveBtn = document.getElementById('saveContact');
+    const saveLabel = document.getElementById('save-label');
+    saveBtn.addEventListener('mouseenter', () => { saveLabel.style.display = 'block'; });
+    saveBtn.addEventListener('mouseleave', () => { saveLabel.style.display = 'none'; });
+
+    saveBtn.onclick = function () {
       var vcardData = `BEGIN:VCARD
 VERSION:3.0
 FN:Sachin Sunny
