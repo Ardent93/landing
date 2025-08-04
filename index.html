@@ -1,135 +1,154 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8" />
+  <meta charset="UTF-8"/>
   <title>Sachin Sunny - Digital Business Card</title>
-  <meta name="viewport" content="width=device-width,initial-scale=1.0" />
+  <meta name="viewport" content="width=device-width,initial-scale=1.0"/>
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css"/>
   <style>
+    :root {
+      --red: #EF4135;
+      --gray-light: #D1D3D4;
+      --gray-dark: #4B4B4B;
+      --white: #fff;
+    }
     body {
       margin: 0;
-      background: #fff;
-      color: #101522;
+      background: var(--gray-light);
+      color: var(--gray-dark);
       font-family: 'Segoe UI', Arial, sans-serif;
     }
     .main-card {
       max-width: 400px;
-      margin: 0 auto;
-      padding-bottom: 100px;
-      box-shadow: 0 8px 32px 0 rgba(50,50,70,.07);
-      border-radius: 18px;
+      margin: 24px auto 0 auto;
+      background: var(--white);
+      border-radius: 22px;
+      box-shadow: 0 8px 32px 0 rgba(60,60,80,.09);
       overflow: hidden;
       min-height: 100vh;
-    }
-    .pic-curve-container {
       position: relative;
-      width: 100%;
-      height: 270px;
-      overflow: hidden;
-      background: #da291c;
+      padding-bottom: 28px;
+    }
+    .card-banner {
+      background: var(--red);
+      height: 150px;
+      position: relative;
+      border-radius: 0 0 32px 32px;
+    }
+    .card-profile-wrapper {
       display: flex;
-      justify-content: center;
-      align-items: flex-end;
+      flex-direction: column;
+      align-items: center;
+      margin-top: -75px;
+      margin-bottom: 12px;
     }
     .profile-pic {
-      width: 170px;
-      height: 170px;
+      width: 120px;
+      height: 120px;
       border-radius: 50%;
-      border: 5px solid #fff;
+      border: 7px solid var(--white);
       object-fit: cover;
-      object-position: center top;
-      box-shadow: 0 6px 24px rgba(90,30,30,0.16);
-      position: relative;
-      z-index: 2;
-      background: #fff;
-      margin-bottom: -70px;
+      background: var(--white);
+      box-shadow: 0 3px 18px #d1d3d455;
     }
-    .pic-bottom-curve {
-      position: absolute;
-      left: 0; right: 0; bottom: 0;
-      height: 60px;
-      background: #fff;
-      border-radius: 0 0 50% 50%/100% 100% 0 0;
-      z-index: 1;
+    .card-content {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      padding: 0 18px;
     }
-    .content-section {
-      padding: 0 18px 12px 18px;
-      text-align: center;
-      position: relative;
-      margin-top: 0;
-      z-index: 3;
-    }
-    .name-main {
-      font-size: 2em;
+    .card-content h1 {
+      font-size: 1.7em;
       font-weight: bold;
-      margin-bottom: 3px;
-      margin-top: 90px;
-      color: #1a1a1a;
+      color: var(--gray-dark);
+      margin: 14px 0 3px 0;
+      letter-spacing: 0.01em;
+      text-align: center;
     }
-    .title-main, .company-main {
-      font-size: 1em;
-      color: #555;
-      font-weight: 500;
-      margin: 0;
+    .card-content .info-line {
+      font-size: 1.01em;
+      color: var(--gray-dark);
       margin-bottom: 3px;
+      margin-top: 1px;
+      text-align: center;
+      font-weight: 400;
     }
-    .btn-row {
+    .company-logo {
+      margin: 16px 0 10px 0;
+      max-width: 180px;
+      height: auto;
+      background: var(--white);
+      padding: 3px 0;
+      border-radius: 7px;
+      display: block;
+      box-shadow: 0 1px 7px var(--gray-light);
+    }
+    .btn-list {
       display: flex;
       justify-content: center;
       align-items: center;
       gap: 10px;
-      margin: 24px 0 10px 0;
+      margin: 22px 0 12px 0;
       flex-wrap: wrap;
     }
     .red-btn {
-      background: #da291c;
-      color: #fff;
-      font-size: 0.98em;
-      font-weight: 500;
+      background: var(--red);
+      color: var(--white);
+      font-size: 1em;
+      font-weight: 600;
       border: none;
       border-radius: 24px;
-      padding: 8px 20px;
+      padding: 7px 19px;
       cursor: pointer;
-      display: inline-flex;
-      align-items: center;
-      transition: background .14s;
-      box-shadow: 0 2px 6px rgba(218,41,28,0.07);
-      letter-spacing: 0.04em;
-      text-decoration: none;
-      min-width: 72px;
-      min-height: 34px;
-    }
-    .red-btn i {
-      margin-right: 7px;
-      font-size: 1em;
-    }
-    .red-btn:active,
-    .red-btn:hover {
-      background: #a32916;
-    }
-    .detail-line {
-      color: #444;
-      margin-top: 22px;
-      font-size: 1.03em;
       display: flex;
       align-items: center;
-      justify-content: center;
-      gap: 10px;
+      gap: 7px;
+      transition: background .14s;
+      text-decoration: none;
+      min-width: 92px;
+      box-shadow: 0 2px 6px #ef413511;
     }
-    .fab {
-      color: #da291c;
+    .red-btn:active, .red-btn:hover { background: #c23529;}
+    .contact-details, .address-details {
+      color: var(--gray-dark);
+      text-align: center;
+      font-size: 1.01em;
+      margin-bottom: 7px;
+      margin-top: 7px;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 3px;
     }
+    .contact-details i, .address-details i {
+      color: var(--red);
+      margin-right: 7px;
+    }
+    .linkedin-link {
+      display: flex;
+      align-items: center;
+      color: var(--red);
+      font-weight: 500;
+      font-size: 1em;
+      gap: 5px;
+      margin-top: 10px;
+      text-decoration: none;
+    }
+    .linkedin-link i {
+      font-size: 1.19em;
+    }
+    /* Floating Add to Contact Button */
     .fab-save {
       position: fixed;
-      bottom: 28px;
-      right: 28px;
+      bottom: 32px;
+      right: 32px;
       z-index: 99;
-      background: #da291c;
-      color: #fff;
-      width: 52px;
-      height: 52px;
+      background: var(--red);
+      color: var(--white);
+      width: 56px;
+      height: 56px;
       border-radius: 50%;
-      box-shadow: 0 2px 8px rgba(218,41,28,0.3);
+      box-shadow: 0 2px 8px #EF413588;
       border: none;
       display: flex;
       justify-content: center;
@@ -139,66 +158,60 @@
       font-weight: bold;
       transition: background .13s;
     }
-    .fab-save:active { background: #a32916;}
+    .fab-save:active { background: #c23529;}
     .fab-save-label {
       position: fixed;
-      bottom: 30px;
-      right: 90px;
-      background: #da291c;
-      color: #fff;
+      bottom: 40px;
+      right: 100px;
+      background: var(--red);
+      color: var(--white);
       padding: 0.65em 1em;
       border-radius: 18px;
       font-size: 1em;
-      box-shadow: 0 2px 8px rgba(218,41,28,0.09);
+      box-shadow: 0 2px 8px #ef413533;
       z-index: 100;
       font-weight: 500;
       display: none;
     }
-    @media (max-width: 550px) {
-      .main-card { max-width: 99vw; }
-      .content-section { padding: 0 2vw 12vw 2vw; }
-      .pic-curve-container { height: 170px; }
-      .profile-pic { width: 120px; height: 120px; margin-bottom: -45px;}
-      .fab-save { width: 44px; height: 44px; font-size: 1.17em; bottom: 12px; right: 12px;}
-      .fab-save-label { right: 52px; font-size: 0.93em;}
-      .name-main {margin-top: 65px;}
-      .btn-row {gap: 6px; margin: 20px 0 8px 0;}
-      .red-btn {font-size: 0.91em; min-height: 31px; padding: 7px 12px;}
+    @media (max-width: 500px) {
+      .main-card { max-width: 99vw; border-radius: 0; }
+      .card-content { padding: 0 6vw;}
+      .btn-list { flex-wrap: wrap; }
+      .fab-save { width: 46px; height: 46px; font-size: 1.19em; bottom: 12px; right: 12px;}
+      .fab-save-label { right: 58px; font-size: 0.95em;}
     }
   </style>
 </head>
 <body>
   <div class="main-card">
-    <div class="pic-curve-container">
-      <!-- Replace with your photo's URL -->
+    <div class="card-banner"></div>
+    <div class="card-profile-wrapper">
+      <!-- Replace with your actual profile image if desired -->
       <img class="profile-pic" src="https://randomuser.me/api/portraits/men/51.jpg" alt="Sachin Sunny" />
-      <div class="pic-bottom-curve"></div>
     </div>
-    <div class="content-section">
-      <div class="name-main">Sachin Sunny</div>
-      <div class="title-main">Information Technology Associate</div>
-      <div class="company-main">AeroConnections</div>
-      <div class="btn-row">
+    <div class="card-content">
+      <h1>Sachin Sunny</h1>
+      <div class="info-line">Information Technology Associate</div>
+      <div class="info-line">AeroConnections</div>
+      <img class="company-logo" src="logo.jpg" alt="AeroConnections Logo"/>
+      <div class="btn-list">
         <a class="red-btn" href="tel:+919778631272"><i class="fas fa-phone"></i>Phone</a>
         <a class="red-btn" href="mailto:sachin.s@aero-connections.com"><i class="fas fa-envelope"></i>Email</a>
         <a class="red-btn" href="https://aero-connections.com/" target="_blank"><i class="fas fa-globe"></i>Website</a>
       </div>
-      <div class="detail-line">
-        <i class="fas fa-phone"></i>
-        <span>+91 9778631272</span>
+      <div class="contact-details">
+        <span><i class="fas fa-phone"></i>+91 9778631272</span>
       </div>
-      <div class="detail-line">
-        <i class="fas fa-map-marker-alt"></i>
-        <span>PO Box: 68736, Sharjah Airport International Free Zone, Sharjah, United Arab Emirates.</span>
+      <div class="address-details">
+        <span><i class="fas fa-map-marker-alt"></i>PO Box: 68736, Sharjah Airport International Free Zone, Sharjah, United Arab Emirates.</span>
       </div>
-      <div class="detail-line">
-        <i class="fab fa-linkedin"></i>
-        <a href="https://www.linkedin.com/in/sachinsunnyit/" target="_blank" style="color:#da291c;text-decoration: underline;">LinkedIn</a>
-      </div>
+      <a class="linkedin-link" href="https://www.linkedin.com/in/sachinsunnyit/" target="_blank">
+        <i class="fab fa-linkedin"></i>LinkedIn
+      </a>
     </div>
   </div>
-  <div id="save-label" class="fab-save-label">Save to contacts</div>
-  <button class="fab-save" id="saveContact" aria-label="Save to contacts"><i class="fas fa-user-plus"></i></button>
+  <div id="save-label" class="fab-save-label">Add to contacts</div>
+  <button class="fab-save" id="saveContact" aria-label="Add to contacts"><i class="fas fa-user-plus"></i></button>
   <script>
     // Optional: Show label when hovering the save button
     const saveBtn = document.getElementById('saveContact');
