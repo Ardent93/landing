@@ -29,28 +29,23 @@
       position: relative;
       padding-bottom: 28px;
     }
-    /* Logo at top left */
-    .logo-bar {
-      position: relative;
-      background: transparent;
-      width: 100%;
-      height: 68px;
-      display: flex;
-      align-items: flex-end;
-      z-index: 5;
-    }
-    .logo-bar img {
-      height: 42px;
-      width: auto;
-      margin: 12px 0 0 18px;
-      display: block;
-    }
     .card-banner {
       background: var(--red);
       height: 120px;
       position: relative;
       border-radius: 0 0 32px 32px;
       z-index: 2;
+    }
+    .banner-logo {
+      position: absolute;
+      top: 16px;
+      left: 18px;
+      z-index: 12;
+      height: 40px;
+      width: auto;
+      max-width: 60%;
+      pointer-events: none;
+      user-select: none;
     }
     .card-profile-wrapper {
       display: flex;
@@ -70,6 +65,7 @@
       background: var(--white);
       box-shadow: 0 3px 18px #d1d3d455;
       margin-top: 0;
+      z-index: 8;
     }
     .card-content {
       display: flex;
@@ -189,18 +185,18 @@
       .btn-list { flex-wrap: wrap; }
       .fab-save { width: 46px; height: 46px; font-size: 1.19em; bottom: 12px; right: 12px;}
       .fab-save-label { right: 58px; font-size: 0.95em;}
+      .banner-logo { height: 31px; }
     }
   </style>
 </head>
 <body>
   <div class="main-card">
-    <div class="logo-bar">
-      <img src="https://ibb.co/93s9z6DT" alt="AeroConnections Logo"/>
+    <div class="card-banner">
+      <img class="banner-logo" src="https://i.ibb.co/PzwZ3KLh/logo.png" alt="AeroConnections Logo"/>
     </div>
-    <div class="card-banner"></div>
     <div class="card-profile-wrapper">
       <!-- Place your profile photo here -->
-      <img class="profile-pic" src="https://media.licdn.com/dms/image/v2/D5603AQHqj6H-Dqk8hQ/profile-displayphoto-shrink_800_800/B56ZSMPIAFGoAk-/0/1737519563204?e=1756944000&v=beta&t=G0mYxHNcqO4JvtqifZYjVUITo_Dj4kjs3b_DaBP_ZcY" alt="Sachin Sunny" />
+      <img class="profile-pic" src="https://randomuser.me/api/portraits/men/51.jpg" alt="Sachin Sunny" />
     </div>
     <div class="card-content">
       <h1>Sachin Sunny</h1>
