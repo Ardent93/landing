@@ -24,16 +24,25 @@
     .pic-curve-container {
       position: relative;
       width: 100%;
-      height: 230px;
+      height: 270px;
       overflow: hidden;
       background: #da291c;
+      display: flex;
+      justify-content: center;
+      align-items: flex-end;
     }
     .profile-pic {
-      width: 100%;
-      height: 240px;
+      width: 170px;
+      height: 170px;
+      border-radius: 50%;
+      border: 5px solid #fff;
       object-fit: cover;
       object-position: center top;
-      display: block;
+      box-shadow: 0 6px 24px rgba(90,30,30,0.16);
+      position: relative;
+      z-index: 2;
+      background: #fff;
+      margin-bottom: -70px;
     }
     .pic-bottom-curve {
       position: absolute;
@@ -41,20 +50,20 @@
       height: 60px;
       background: #fff;
       border-radius: 0 0 50% 50%/100% 100% 0 0;
-      z-index: 2;
+      z-index: 1;
     }
     .content-section {
       padding: 0 18px 12px 18px;
       text-align: center;
       position: relative;
-      margin-top: -48px;
+      margin-top: 0;
       z-index: 3;
     }
     .name-main {
       font-size: 2em;
       font-weight: bold;
       margin-bottom: 3px;
-      margin-top: 0.9em;
+      margin-top: 90px;
       color: #1a1a1a;
     }
     .title-main, .company-main {
@@ -64,35 +73,39 @@
       margin: 0;
       margin-bottom: 3px;
     }
-    .personal-desc {
-      font-size: 0.98em;
-      font-style: italic;
-      margin-bottom: 18px;
-      color: #999;
+    .btn-row {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      gap: 10px;
+      margin: 24px 0 10px 0;
+      flex-wrap: wrap;
     }
     .red-btn {
-      display: block;
-      width: 100%;
-      padding: 15px 0;
-      margin: 12px 0;
       background: #da291c;
       color: #fff;
-      font-size: 1.23em;
+      font-size: 0.98em;
       font-weight: 500;
       border: none;
-      border-radius: 28px;
+      border-radius: 24px;
+      padding: 8px 20px;
       cursor: pointer;
+      display: inline-flex;
+      align-items: center;
       transition: background .14s;
       box-shadow: 0 2px 6px rgba(218,41,28,0.07);
       letter-spacing: 0.04em;
       text-decoration: none;
+      min-width: 72px;
+      min-height: 34px;
     }
     .red-btn i {
-      margin-right: 12px;
+      margin-right: 7px;
+      font-size: 1em;
     }
-    .red-btn:active, .red-btn:hover {
+    .red-btn:active,
+    .red-btn:hover {
       background: #a32916;
-      color: #fff;
     }
     .detail-line {
       color: #444;
@@ -106,7 +119,6 @@
     .fab {
       color: #da291c;
     }
-    /* Floating Save Button */
     .fab-save {
       position: fixed;
       bottom: 28px;
@@ -114,15 +126,15 @@
       z-index: 99;
       background: #da291c;
       color: #fff;
-      width: 60px;
-      height: 60px;
+      width: 52px;
+      height: 52px;
       border-radius: 50%;
       box-shadow: 0 2px 8px rgba(218,41,28,0.3);
       border: none;
       display: flex;
       justify-content: center;
       align-items: center;
-      font-size: 2em;
+      font-size: 1.5em;
       cursor: pointer;
       font-weight: bold;
       transition: background .13s;
@@ -131,7 +143,7 @@
     .fab-save-label {
       position: fixed;
       bottom: 30px;
-      right: 100px;
+      right: 90px;
       background: #da291c;
       color: #fff;
       padding: 0.65em 1em;
@@ -143,23 +155,22 @@
       display: none;
     }
     @media (max-width: 550px) {
-      .main-card {
-        max-width: 99vw;
-      }
-      .content-section {
-        padding: 0 2vw 12vw 2vw;
-      }
-      .pic-curve-container { height: 150px; }
-      .profile-pic { height: 160px; }
-      .fab-save { width: 52px; height: 52px; font-size: 1.40em; bottom: 16px; right: 16px;}
-      .fab-save-label { right: 70px; font-size: 0.98em;}
-      .name-main {margin-top: 0.6em;}
+      .main-card { max-width: 99vw; }
+      .content-section { padding: 0 2vw 12vw 2vw; }
+      .pic-curve-container { height: 170px; }
+      .profile-pic { width: 120px; height: 120px; margin-bottom: -45px;}
+      .fab-save { width: 44px; height: 44px; font-size: 1.17em; bottom: 12px; right: 12px;}
+      .fab-save-label { right: 52px; font-size: 0.93em;}
+      .name-main {margin-top: 65px;}
+      .btn-row {gap: 6px; margin: 20px 0 8px 0;}
+      .red-btn {font-size: 0.91em; min-height: 31px; padding: 7px 12px;}
     }
   </style>
 </head>
 <body>
   <div class="main-card">
     <div class="pic-curve-container">
+      <!-- Replace with your photo's URL -->
       <img class="profile-pic" src="https://randomuser.me/api/portraits/men/51.jpg" alt="Sachin Sunny" />
       <div class="pic-bottom-curve"></div>
     </div>
@@ -167,10 +178,11 @@
       <div class="name-main">Sachin Sunny</div>
       <div class="title-main">Information Technology Associate</div>
       <div class="company-main">AeroConnections</div>
-      <div class="personal-desc">Passionate about IT solutions and digital innovation.</div>
-      <a class="red-btn" href="tel:+919778631272"><i class="fas fa-phone"></i>Phone</a>
-      <a class="red-btn" href="mailto:sachin.s@aero-connections.com"><i class="fas fa-envelope"></i>Email</a>
-      <a class="red-btn" href="https://aero-connections.com/" target="_blank"><i class="fas fa-globe"></i>Website</a>
+      <div class="btn-row">
+        <a class="red-btn" href="tel:+919778631272"><i class="fas fa-phone"></i>Phone</a>
+        <a class="red-btn" href="mailto:sachin.s@aero-connections.com"><i class="fas fa-envelope"></i>Email</a>
+        <a class="red-btn" href="https://aero-connections.com/" target="_blank"><i class="fas fa-globe"></i>Website</a>
+      </div>
       <div class="detail-line">
         <i class="fas fa-phone"></i>
         <span>+91 9778631272</span>
@@ -188,7 +200,7 @@
   <div id="save-label" class="fab-save-label">Save to contacts</div>
   <button class="fab-save" id="saveContact" aria-label="Save to contacts"><i class="fas fa-user-plus"></i></button>
   <script>
-    // Show label when hovering the save button (optional, can be removed for simplicity)
+    // Optional: Show label when hovering the save button
     const saveBtn = document.getElementById('saveContact');
     const saveLabel = document.getElementById('save-label');
     saveBtn.addEventListener('mouseenter', () => { saveLabel.style.display = 'block'; });
