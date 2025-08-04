@@ -4,10 +4,7 @@
   <meta charset="UTF-8" />
   <title>Sachin Sunny - Digital Business Card</title>
   <meta name="viewport" content="width=device-width,initial-scale=1.0" />
-  <link
-    rel="stylesheet"
-    href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css"
-  />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css"/>
   <style>
     body {
       background: #f4f7fa;
@@ -16,227 +13,32 @@
       color: #222;
     }
     .header {
-      background: #093971;
-      color: #fff;
-      text-align: center;
-      padding: 32px 16px 16px;
       position: relative;
+      height: 170px;
+      width: 100%;
+      background: #da291c;
+      overflow: hidden;
+      display: flex;
+      align-items: flex-end;
+      flex-direction: column;
+      justify-content: flex-end;
     }
-    .profile-pic {
-      width: 80px;
-      height: 80px;
-      border-radius: 50%;
-      border: 4px solid #fff;
+    .profile-banner {
       position: absolute;
-      left: 50%;
-      transform: translateX(-50%);
-      top: -40px;
-      background: #fff;
+      left: 0; top: 0;
+      width: 100%; height: 100%;
       object-fit: cover;
+      object-position: center;
+      z-index: 1;
     }
-    .name {
-      margin-top: 48px;
-      font-size: 1.4em;
-      font-weight: bold;
-      letter-spacing: 0.5px;
+    .header-overlay {
+      position: absolute;
+      top: 0; left: 0; width: 100%; height: 100%;
+      background: rgba(218, 41, 28, 0.8);
+      z-index: 2;
     }
-    .title {
-      font-size: 1em;
-      color: #d0efff;
-      margin-bottom: 10px;
-    }
-    .action-row {
-      display: flex;
-      justify-content: center;
-      background: #093971;
-      padding: 12px 0;
-    }
-    .action-row a {
-      text-decoration: none;
+    .name-title-block {
+      position: absolute;
+      bottom: 20px; left: 0; width: 100%;
+      z-index: 3;
       color: #fff;
-      flex: 1;
-      text-align: center;
-    }
-    .action-row i {
-      display: block;
-      font-size: 1.5em;
-      margin-bottom: 2px;
-    }
-    .container {
-      background: #fff;
-      margin: 0 auto;
-      margin-top: 10px;
-      padding: 16px;
-      max-width: 450px;
-      border-radius: 12px;
-      box-shadow: 0 4px 18px rgba(50, 50, 90, 0.12);
-    }
-    .info-row {
-      display: flex;
-      align-items: center;
-      margin: 14px 0;
-      color: #34495e;
-    }
-    .info-row i {
-      width: 28px;
-      min-width: 28px;
-      text-align: center;
-      color: #0e5086;
-      margin-right: 12px;
-      font-size: 1.2em;
-    }
-    .info-label {
-      font-size: 0.97em;
-      font-weight: 500;
-    }
-    .label-tiny {
-      font-size: 0.85em;
-      color: #888;
-    }
-    .save-btn {
-      background: #f8cb23;
-      border: none;
-      color: #093971;
-      padding: 12px 26px;
-      border-radius: 24px;
-      font-size: 1em;
-      font-weight: bold;
-      box-shadow: 0 2px 8px rgba(70, 70, 70, 0.1);
-      cursor: pointer;
-      position: fixed;
-      bottom: 28px;
-      right: 32px;
-      z-index: 9;
-      display: flex;
-      align-items: center;
-    }
-    .save-btn i {
-      font-size: 1.2em;
-      margin-right: 8px;
-    }
-    .website-link,
-    .linkedin-link {
-      color: #0e5086;
-      text-decoration: none;
-    }
-    @media (max-width: 550px) {
-      .container {
-        max-width: 99vw;
-        border-radius: 0;
-        padding: 7vw 2vw;
-      }
-      .action-row {
-        padding: 10px 0;
-      }
-      .save-btn {
-        right: 12px;
-        bottom: 12px;
-      }
-    }
-  </style>
-</head>
-<body>
-  <div class="header">
-    <img
-      src="https://randomuser.me/api/portraits/men/51.jpg"
-      alt="Profile"
-      class="profile-pic"
-    />
-    <div class="name">Sachin Sunny</div>
-    <div class="title">Information Technology Associate</div>
-  </div>
-  <div class="action-row">
-    <a href="tel:+919778631272"><i class="fas fa-phone"></i>CALL</a>
-    <a href="mailto:sachin.s@aero-connections.com"><i class="fas fa-envelope"></i>EMAIL</a>
-    <a
-      href="https://goo.gl/maps/Q3TcerHeLCxYJG5c6"
-      target="_blank"
-      ><i class="fas fa-map-marked-alt"></i
-      >DIRECTIONS</a
-    >
-  </div>
-
-  <div class="container">
-    <div class="info-row">
-      <i class="fas fa-phone"></i>
-      <div>
-        <div class="info-label">+91 9778631272</div>
-        <div class="label-tiny">Mobile</div>
-      </div>
-    </div>
-    <div class="info-row">
-      <i class="fas fa-envelope"></i>
-      <div>
-        <div class="info-label">sachin.s@aero-connections.com</div>
-        <div class="label-tiny">Email</div>
-      </div>
-    </div>
-    <div class="info-row">
-      <i class="fas fa-building"></i>
-      <div>
-        <div class="info-label">AeroConnections</div>
-        <div class="label-tiny">Information Technology Associate</div>
-      </div>
-    </div>
-    <div class="info-row">
-      <i class="fas fa-map-marker-alt"></i>
-      <div>
-        <div class="info-label">
-          PO Box: 68736, Sharjah Airport International Free Zone, Sharjah,
-          United Arab Emirates.
-        </div>
-      </div>
-    </div>
-    <div class="info-row">
-      <i class="fas fa-external-link-alt"></i>
-      <div>
-        <a
-          class="website-link"
-          href="https://aero-connections.com/"
-          target="_blank"
-          >https://aero-connections.com/</a
-        >
-      </div>
-    </div>
-    <div class="info-row">
-      <i class="fab fa-linkedin"></i>
-      <div>
-        <a
-          class="linkedin-link"
-          href="https://www.linkedin.com/in/sachinsunnyit/"
-          target="_blank"
-          >https://www.linkedin.com/in/sachinsunnyit/</a
-        >
-      </div>
-    </div>
-  </div>
-
-  <button class="save-btn" id="saveContact">
-    <i class="fas fa-user-plus"></i>Save Contact
-  </button>
-
-  <script>
-    document.getElementById("saveContact").onclick = function () {
-      var vcardData = `BEGIN:VCARD
-VERSION:3.0
-FN:Sachin Sunny
-ORG:AeroConnections
-TITLE:Information Technology Associate
-EMAIL:sachin.s@aero-connections.com
-TEL;TYPE=CELL:+919778631272
-ADR;TYPE=WORK:;;PO Box: 68736, Sharjah Airport International Free Zone, Sharjah;Sharjah;;United Arab Emirates
-URL:https://aero-connections.com/
-X-LINKEDIN;VALUE=uri:https://www.linkedin.com/in/sachinsunnyit/
-END:VCARD`;
-      var blob = new Blob([vcardData], { type: "text/vcard" });
-      var url = URL.createObjectURL(blob);
-      var a = document.createElement("a");
-      a.href = url;
-      a.download = "Sachin-Sunny.vcf";
-      document.body.appendChild(a);
-      a.click();
-      document.body.removeChild(a);
-    };
-  </script>
-</body>
-</html>
