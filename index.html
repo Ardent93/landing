@@ -29,18 +29,37 @@
       position: relative;
       padding-bottom: 28px;
     }
+    /* Logo at top left */
+    .logo-bar {
+      position: relative;
+      background: transparent;
+      width: 100%;
+      height: 68px;
+      display: flex;
+      align-items: flex-end;
+      z-index: 5;
+    }
+    .logo-bar img {
+      height: 42px;
+      width: auto;
+      margin: 12px 0 0 18px;
+      display: block;
+    }
     .card-banner {
       background: var(--red);
-      height: 150px;
+      height: 120px;
       position: relative;
       border-radius: 0 0 32px 32px;
+      z-index: 2;
     }
     .card-profile-wrapper {
       display: flex;
       flex-direction: column;
       align-items: center;
-      margin-top: -75px;
+      margin-top: -60px;
       margin-bottom: 12px;
+      position: relative;
+      z-index: 4;
     }
     .profile-pic {
       width: 120px;
@@ -50,6 +69,7 @@
       object-fit: cover;
       background: var(--white);
       box-shadow: 0 3px 18px #d1d3d455;
+      margin-top: 0;
     }
     .card-content {
       display: flex;
@@ -72,16 +92,6 @@
       margin-top: 1px;
       text-align: center;
       font-weight: 400;
-    }
-    .company-logo {
-      margin: 16px 0 10px 0;
-      max-width: 180px;
-      height: auto;
-      background: var(--white);
-      padding: 3px 0;
-      border-radius: 7px;
-      display: block;
-      box-shadow: 0 1px 7px var(--gray-light);
     }
     .btn-list {
       display: flex;
@@ -184,16 +194,18 @@
 </head>
 <body>
   <div class="main-card">
+    <div class="logo-bar">
+      <img src="https://drive.google.com/file/d/1zIfhh9PHMM9f6a_oTGjH-oMDmxzo138n/view?usp=sharing" alt="AeroConnections Logo"/>
+    </div>
     <div class="card-banner"></div>
     <div class="card-profile-wrapper">
-      <!-- Replace with your actual profile image if desired -->
-      <img class="profile-pic" src="https://randomuser.me/api/portraits/men/51.jpg" alt="Sachin Sunny" />
+      <!-- Place your profile photo here -->
+      <img class="profile-pic" src="https://media.licdn.com/dms/image/v2/D5603AQHqj6H-Dqk8hQ/profile-displayphoto-shrink_800_800/B56ZSMPIAFGoAk-/0/1737519563204?e=1756944000&v=beta&t=G0mYxHNcqO4JvtqifZYjVUITo_Dj4kjs3b_DaBP_ZcY" alt="Sachin Sunny" />
     </div>
     <div class="card-content">
       <h1>Sachin Sunny</h1>
       <div class="info-line">Information Technology Associate</div>
       <div class="info-line">AeroConnections</div>
-      <img class="company-logo" src="logo.jpg" alt="AeroConnections Logo"/>
       <div class="btn-list">
         <a class="red-btn" href="tel:+919778631272"><i class="fas fa-phone"></i>Phone</a>
         <a class="red-btn" href="mailto:sachin.s@aero-connections.com"><i class="fas fa-envelope"></i>Email</a>
@@ -213,7 +225,6 @@
   <div id="save-label" class="fab-save-label">Add to contacts</div>
   <button class="fab-save" id="saveContact" aria-label="Add to contacts"><i class="fas fa-user-plus"></i></button>
   <script>
-    // Optional: Show label when hovering the save button
     const saveBtn = document.getElementById('saveContact');
     const saveLabel = document.getElementById('save-label');
     saveBtn.addEventListener('mouseenter', () => { saveLabel.style.display = 'block'; });
