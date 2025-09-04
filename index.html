@@ -227,16 +227,16 @@
     saveBtn.addEventListener('mouseleave', () => { saveLabel.style.display = 'none'; });
 
     saveBtn.onclick = function () {
-      // iOS-optimized vCard format
+      // Universal vCard format (compatible with both iOS and Android)
       var vcardData = `BEGIN:VCARD
-VERSION:4.0
+VERSION:3.0
 FN:Sachin Sunny
 N:Sunny;Sachin;;;
 ORG:AeroConnections
 TITLE:Information Technology Associate
-EMAIL;TYPE=work:sachin.s@aero-connections.com
-TEL;TYPE=cell:+919778631272
-ADR;TYPE=work:;;PO Box: 68736, Sharjah Airport International Free Zone;Sharjah;;68736;United Arab Emirates
+EMAIL;TYPE=WORK;TYPE=INTERNET:sachin.s@aero-connections.com
+TEL;TYPE=CELL:+919778631272
+ADR;TYPE=WORK:;;PO Box: 68736, Sharjah Airport International Free Zone;Sharjah;;68736;United Arab Emirates
 URL:https://aero-connections.com/
 X-SOCIALPROFILE;TYPE=linkedin:https://www.linkedin.com/in/sachinsunnyit/
 END:VCARD`;
