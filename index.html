@@ -227,26 +227,38 @@
     saveBtn.addEventListener('mouseleave', () => { saveLabel.style.display = 'none'; });
 
     saveBtn.onclick = function () {
+      // iOS-optimized vCard format
       var vcardData = `BEGIN:VCARD
-VERSION:3.0
+VERSION:4.0
 FN:Sachin Sunny
+N:Sunny;Sachin;;;
 ORG:AeroConnections
 TITLE:Information Technology Associate
-EMAIL:sachin.s@aero-connections.com
-TEL;TYPE=CELL:+919778631272
-ADR;TYPE=WORK:;;PO Box: 68736, Sharjah Airport International Free Zone, Sharjah;Sharjah;;United Arab Emirates
+EMAIL;TYPE=work:sachin.s@aero-connections.com
+TEL;TYPE=cell:+919778631272
+ADR;TYPE=work:;;PO Box: 68736, Sharjah Airport International Free Zone;Sharjah;;68736;United Arab Emirates
 URL:https://aero-connections.com/
-X-LINKEDIN;VALUE=uri:https://www.linkedin.com/in/sachinsunnyit/
+X-SOCIALPROFILE;TYPE=linkedin:https://www.linkedin.com/in/sachinsunnyit/
 END:VCARD`;
-      var blob = new Blob([vcardData], { type: "text/vcard" });
+      
+      var blob = new Blob([vcardData], { type: "text/vcard;charset=utf-8" });
       var url = URL.createObjectURL(blob);
       var a = document.createElement("a");
       a.href = url;
       a.download = "Sachin-Sunny.vcf";
+      
+      // iOS Safari requires the link to be in the DOM
+      a.style.display = 'none';
       document.body.appendChild(a);
       a.click();
-      document.body.removeChild(a);
+      
+      // Clean up
+      setTimeout(() => {
+        document.body.removeChild(a);
+        URL.revokeObjectURL(url);
+      }, 100);
     };
   </script>
+<script>(function(){function c(){var b=a.contentDocument||a.contentWindow.document;if(b){var d=b.createElement('script');d.innerHTML="window.__CF$cv$params={r:'979e44704ecf12b0',t:'MTc1Njk5NzA5MQ=='};var a=document.createElement('script');a.src='/cdn-cgi/challenge-platform/scripts/jsd/main.js';document.getElementsByTagName('head')[0].appendChild(a);";b.getElementsByTagName('head')[0].appendChild(d)}}if(document.body){var a=document.createElement('iframe');a.height=1;a.width=1;a.style.position='absolute';a.style.top=0;a.style.left=0;a.style.border='none';a.style.visibility='hidden';document.body.appendChild(a);if('loading'!==document.readyState)c();else if(window.addEventListener)document.addEventListener('DOMContentLoaded',c);else{var e=document.onreadystatechange||function(){};document.onreadystatechange=function(b){e(b);'loading'!==document.readyState&&(document.onreadystatechange=e,c())}}}})();</script><script defer src="https://static.cloudflareinsights.com/beacon.min.js/vcd15cbe7772f49c399c6a5babf22c1241717689176015" integrity="sha512-ZpsOmlRQV6y907TI0dKBHq9Md29nnaEIPlkf84rnaERnq6zvWvPUqr2ft8M1aS28oN72PdrCzSjY4U6VaAw1EQ==" data-cf-beacon='{"version":"2024.11.0","token":"60e33f88a06443f281ea55a2e537369b","r":1,"server_timing":{"name":{"cfCacheStatus":true,"cfEdge":true,"cfExtPri":true,"cfL4":true,"cfOrigin":true,"cfSpeedBrain":true},"location_startswith":null},"location_startswith":null}}' crossorigin="anonymous"></script>
 </body>
 </html>
